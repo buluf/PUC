@@ -1,2 +1,2 @@
 # PUC
-Onde postarei materiais que eu produzi relacionado a faculdade
+Onde postarei materiais que eu produzi relacionados a faculdade
