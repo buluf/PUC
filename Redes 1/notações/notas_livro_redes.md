@@ -27,7 +27,7 @@ A transmissão ponto a ponto com exatamente um transmissor e exatamente um recep
 troca de mensagens instantâneas. Esses recurso, derivado do programa talk do UNIX, em uso desde aproximadamente 1970.
 
 * ##### Comércio eletrônico
-![abreviacao](images/abreviacoes.png)
+![abreviacao](/images/abreviacoes.png)
 
 * #### DCS1000 (Carnivore)
 Carnivore foi um sistema implementado pelo Federal Bureau of investigation - FBI, projetado para monitorar as comunicações de e-mail e eletrônicos. É utilizado um packet siniffer personalizável que pode monitorar todo o tráfego de um usuário da internet.
