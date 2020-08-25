@@ -1,0 +1,12 @@
+# Exercícios
+#### 2. Explique a necessidade de um mecanismo de controle de acesso ao meio nas redes difusão.
+Porque se não tivesse um dispositivo de controle de acesso numa rede broadcast(difusão) sendo que o canal de comunicação dela é compartilhado qualquer um poderia acessar mensagens que não lhe é destinado. Por isso também foi adicionado um campo de endereço em toda mensagem.
+#### 3. Dê um exemplo de um serviço orientado a conexão confiável. Justifique sua resposta.
+Transferência de arquivos(transporte). TCP(Transmission Control Protocol) é um exemplo disso,
+pois ele permite a entrega sem erros(confiável) de dados de uma determinada máquina a outra máquina da rede. O proprietário do arquivo deseja se certificar que todos os bits chegaram corretamente e na mesma ordem em que foram enviados.
+#### 4. Em alguns casos, quando uma conexão é estabelecida, o transmissor e o receptor conduzem uma “negociação” sobre os parâmetros a serem usados. Dê um exemplo do uso de negociação pelos protocolos de rede.
+Como por exemplo definir o tamanho máximo das mensagens, a qualidade do serviço exigida e entre outra possibilidades. Em geral, um lado faz uma proposta e a outra parte pode aceitá-la, rejeitá-la ou fazer um contraproposta.
+#### 5 Como seria o tipo de serviço que um usuário de uma aplicação de tempo real precisaria? Justifique.
+Seria algo no estilo do protocolo UDP(User Datagram Protocol) algo que não será orientado a conexão, pois não há garantia de envio/recebimento de pacotes e isso é caro, para um aplicação de tempo real não serviria.
+#### 6. Quando um arquivo é transferido entre dois computadores, são possíveis duas estratégias de confirmação. Na primeira, o arquivo é dividido em pacotes, que são confirmados individualmente pelo receptor, mas a transferência do arquivo como um todo não é confirmada. Na segunda, os pacotes não são confirmados individualmente mas, ao chegar a seu destino, o arquivo inteiro é confirmado. Analise essas duas abordagens.
+Começando pela segunda abordagem tem um problema bem nítido, e provável que aconteça, que é o problema de houver um falha logo de começo, ele só será noticiado no final de seu destino, e terá que retransmitir tudo de novo. A primeira abordagem se houver falha no meio do caminho ela responderá muito melhor, mas ela terá um overhead muito alto, ter que enviar confirmação toda hora pode não valer muita a pena.
