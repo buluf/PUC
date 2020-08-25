@@ -31,7 +31,7 @@ Já as redes de broadcast tem apenas um canal de comunicação, compartilhado po
 ##### Escala ou escalabilidade
 Um critério alternativo para classificar as redes. A distância é importante como métrica de classificação, pois diferentes tecnologias são usadas em diferentes escalas.
 
-![escalabilidade](images/escalabilidade.png)
+![escalabilidade](images/escalabilidade.PNG)
 
 #### Redes Pessoais
 As redes pessoais, ou PANs (Personal Area Networks), permitem que dispositivos se comuniquem pelo
@@ -39,7 +39,7 @@ alcance de uma pessoa.
 
 **Bluetooth** as redes Bluetooth usam um paradigma mestre-escravo.
 
-![bluetooth](images/bluetooth.png)
+![bluetooth](images/bluetooth.PNG)
 
 A unidade do sistema(PC) normalmente é o mestre, e os periféricos, escravos. O mestre diz aos escravos quais endereços usar, quando eles podem transmitir, por quanto tempo, quais frequências eles podem usar e assim por diante.
 
@@ -49,13 +49,13 @@ A unidade do sistema(PC) normalmente é o mestre, e os periféricos, escravos. O
  **obs**: Quando as LANs são usadas pelas empresas, elas são chamadas **redes empresariais.**
   LANs sem fio são muito populares atualmente, especialmente nas residências, prédios de escritórios antigos e lugares onde a instalção de cabos é muito trabalhosa. Nesses sistemas, cada computador tem um rádio modem e uma antena, que ele usa para se comunicar com outros computadores. Quase sempre, cada computador fala com um dispositivo no teto, chamado **ponto de acesso**, **roteador sem fio** ou **estação-base**,repassa os pacotes entre os computadores sem fio e também entre eles e a Internet. Ser o AP é como ser o garoto popular na escola, pois todos querem falar com você. Porém, se os outros computadores estiverem próximos o suficiente, eles podem se comunicar diretamente em uma configuração peer-to-peer.
   Existe um padrão para as LANs sem fios, chamado **IEEE 802.11**, nosso famigerado **WiFi**. Ele trabalha em velocidades de 11 a centenas de Mbps.
-![WiFi](images/ponto_de_acesso.png)
+![WiFi](images/ponto_de_acesso.PNG)
 
  As LANs com fios Utilizam uma série de tecnologias de transmissão diferentes. A maioria delas usa fios de cobre, mas algumas usam fibra óptica. A topologia de muitas LANs com fios é embutida a partir de enlaces ponto a ponto. O IEEE 802.3, popularmente chamado **Ethernet**, é de longe o tipo mais comum de LAN com fios.
 
  **Ethernet comutada**
 
- ![comutada](images/ethernet_comutada.png)
+ ![comutada](images/ethernet_comutada.PNG)
 
  Cada computador troca informações usando o protocolo Ethernet e se conecta a um dispositivo de rede chamado **switch**, com um enlace ponto a ponto. Daí o nome. Um switch tem várias **portas**, cada qual podendo se conectar a um computador. A função do switch é repassar os pacotes entre os computadores que estão conectados a ela, usando o endereço em cada pacote para determinar para qual computador enviá-lo.
  Os switches podem ser conectados uns aos outros usando suas portas. Também é possível dividir uma LAN física grande em duas LANs lógicas menores(VLAN).
@@ -66,7 +66,7 @@ A unidade do sistema(PC) normalmente é o mestre, e os periféricos, escravos. O
 
 #### Redes Metropolitanas
 Uma **rede metropolitana**, ou **MAN (Metropolitan Area Network), abrange uma cidade. O exemplo mais conhecido de MANs é a rede de televisão a cabo disponível em muitas cidades. Em uma primeira aproximação, uma MAN seria semelhante ao sistema mostrado abaixo:
-![MAN](images/man.png)
+![MAN](images/man.PNG)
 observamos que os sinais de televisão e de internet são transmitidos à **central a cabo** centralizada para distribuição subsequente  às casas das pessoas. Porém, a televisão a cabo não é a única MAN. OS desenvolvimentos recentes para acesso à internet de alta velocidade sem fio resultaram em outra MAN, que foi padronizada como IEEE 802.16 e é conhecida popularmente como **WiMax.**
 
 #### Redes A Longas Distâncias
@@ -75,7 +75,7 @@ Obs: 'sub-rede'. Originalmente, seu **único** significado identificava o conjun
 
 ##### Variedade de WANs
 Primeiro , em vez de alugar linhas de transmissão dedicadas, uma empresa pode conectar seus escritórios à Internet. Isso permite que as conexões sejam feitas entre os escritórios como enlaces virturais que usam a capacidade de infraestrutura da Internet. Esse arranjo:
-![vpn](images/vpn.png)
+![vpn](images/vpn.PNG)
 é chamado de **rede privada virtual,** ou **VPN (Virtual Private Network)**. Em comparação com o arranjo dedicado, uma VPN tem a vantagem comum da virtualização, ou seja, ela oferece flexibilidade na reutilização de recurso (conectividade com a Internet). Com uma VPN, suas milhas estão sujeitas à variação, de acordo com o serviço da internet.
 A segunda variação é que a sub-rede pode ser operada por uma empresa diferente. O operador da sub-rede é conhecido como um **provedor de serviço de rede**, e os escritórios são seus clientes. O operador da sub-rede também se conectará a outros clientes, desde que eles possam pagar e ela possa oferecer o serviço. O operador da sub-rede também se conectará a outras redes que fazem parte da Internet. Esse operador de sub-rede é chamado de **provedor de serviço de Internet,** ou **ISP (Internet Service Provider),** e a sub-red é uma **rede ISP.** Seus clientes que se conectam à ISP recebem serviço de internet. A rede de telefonia celular é outro exemplo de uma WAN que usa tecnologia sem fio. Esse sistema já passou por três gerações, e uma quarta está a caminho. A primeira geração era analógica e usada apenas para voz e usada apenas para voz. a segunda geração era digital e apenas para voz. A terceira geração é digital e se destina a voz e dados.
 
@@ -90,7 +90,7 @@ Para reduzir a complexidade de seu projeto, a maioria das redes é organizada co
 
 Quando a camada n de uma máquina se comunica com a camada n de outra máquina, coletivamente, as regras e convenções usadas nesse diálogo são conhecidas como protocolo da camada n. Basicamente, um **protocolo** é um acordo entre as partes que se comunicam, estabelecendo como se dará a comunicação.
 Rede de cinco camadas:
-![camadas](images/cinco_camadas.png)
+![camadas](images/cinco_camadas.PNG)
 As entidade que ocupam as camadas correspondentes em diferentes máquinas são chamadas pares(ou **peers**). Os pares podem ser processos de software, dispositivos de hardware, ou mesmo seres humanos. Em outras palavras, são os pares que se comunicam utilizando o protocolo. Não há comunicação direta entre a camada n de uma máquina para camada n de outra máquina. Em vez disso, cada camada transfere os dados e as informações de controle para a camada imediatamente abaixo dela, até a camada mais baixa ser alcançada, abaixo da camada 1 encontra-se o **meio físico** por meio do qual se dá a comunicação propriamente dita. Entre cada par de camadas adjacentes existe uma **interface**. Esta define as operações e os serviços que a camada inferior tem a oferecer à camada acima dela.
 
 Um conjunto de camadas e protocolos é chamado de **arquitetura de rede**. A especificação de uma arquitetura deve conter informações suficientes para permitir que um implementador desenvolva o programa ou construa o hardware de cada camada de forma que ela obedeça corretamente ao protocolo adequado. Uma lista de protocolos usados por um determinado sistema, um protocolo por camada, é chamada **pilha de protocolos.**
@@ -123,7 +123,7 @@ Em outras situações, a conveniência de não ter de estabelecer uma conexão p
 
 Outro serviço é o de **solicitação/resposta.** Nele, o transmissor envia um único datagrama contendo uma solicitação; a resposta contém a réplica. A solicitação/resposta é em geral usada para implementar a comunicação no modelo cliente-servidor: o cliente emite uma solicitação e o servidor responde.
 
-![servicos](images/servicos_orientado_nao.png)
+![servicos](images/servicos_orientado_nao.PNG)
 
 ##### Primitivas De Serviço
 Um serviço é especificado formalmente por uma conjunto de **primitivas** (operações) disponíveis para que os processos do usuários acessem o serviço. Essas primitivas informam ao serviço que ele deve executar alguma ação ou relatar uma ação executada por uma entidade par. Se a pilha de protocolos estiver localizada no sistema operacional, como ocorre com frequência, as primitivas serão normalmente chamadas do sistema. Essas chamadas geram uma armadilha para o kernel, que então devolve o controle da máquina ao sistema operacional para enviar os pacotes necessários.
@@ -132,7 +132,7 @@ Um serviço é especificado formalmente por uma conjunto de **primitivas** (oper
 Serviços e protocolos são conceitos diferentes. Um serviço é um conjunto de primitivas (operações) que uma camada oferece à camada situada acima dela. O serviço define as operações que a camada está preparada para executar em nome de seus usuários, mas não informa absolutamente nada sobre como essas operações são implementadas. Um serviço se relaciona a uma interface entre duas camadas, sendo a camada inferior o fornecedor do serviço e a camada superior, o usuário do serviço.
 
 Ao contrário, o protocolo é um conjunto de regras que controla o formato e o significado dos pacotes ou mensagens que são trocadas pelas entidades pares contidas em uma camada. As entidades utilizam protocolos com a finalidade de implementar suas definições de serviço. Elas têm a liberdade de trocar seus protocolos, desde que não alterem o serviço visível para seus usuários. Portanto, o serviço e o protocolo são independentes um do outro.
-![servico/protocolo](images/servico_protocolo.png)
+![servico/protocolo](images/servico_protocolo.PNG)
 
 #### Modelos De Referência
 Modelos de referência a se tratar, OSI e TCP/IP. Embora os protocolos associados ao modelo OSI raramente sejam usados nos dias de hoje, o modelo em si é de fato bastante geral e ainda válido, e as características descritas em cada camada ainda são muito importantes. O modelo TCP/IP tem características opostas: o modelo propriamente dito não é muito utilizado, mas os protocolos são bastante utilizados.
