@@ -1,0 +1,48 @@
+Nome: Leonardo Rothier Soares Cardoso 	Matrícula:597690
+
+CLIENTE
+descrição: pessoa que entrar na loja e possível comprador
+propriedades: nome, cpf, data de nascimento, endereço, dados do cartão e telefone
+chave: cpf
+relacionamentos: 
+- cliente-estabelecimento: um cliente poderá ir em vários estabelecimentos para fazer suas compras
+- cliente-aplicativo: um cliente terá um aplicativo baixado no seu smartphone para realizar as compras nos estabelecimentos credenciados
+- cliente-carrinho: um cliente poderá colocar vários produtos no carrinho, um carrinho estará associado a somente um cliente
+ 
+ESTABELECIMENTO
+descrição: local credenciado pela amazon para vender os produtos pelo carrinho de compras virtual
+propriedades: nome, registro do estabelecimento, endereço
+chave: registro do estabelecimento
+relacionamentos:
+- cliente-estabelecimento: um cliente poderá ir em vários estabelecimentos para fazer suas compras
+
+CARRINHO
+descrição: carrinho virtual do cliente, onde o mesmo poderá armazenar todas as suas compras
+propriedades: cpf do cliente, data da compra, produtos, valor total
+chave: cpf cliente
+relacionamentos:
+-cliente-carrinho: um cliente poderá colocar vários produtos no carrinho, um carrinho estará associado a somente um cliente
+-carrinho-produto: um carrinho pode conter vários produtos. Se o produto físico for retirado do carrinho físico, o mesmo será retirado também do carrinho virtual
+-carrinho-pagamento: quando o cliente finalizar as compras e sair do estabelecimento credenciado, o pagamento será efetuado automaticamente
+
+PAGAMENTO
+descrição:  o pagamento será efetuado quando o cliente sair do estabelecimento
+propriedades: valor da compra, recibo, conta do cliente
+chave:
+relacionamentos:
+-carrinho-pagamento: quando o cliente finalizar as compras e sair do estabelecimento credenciado, o pagamento será efetuado automaticamente
+
+APLICATIVO
+descrição:  software utilizado pelo cliente para realização das compras
+propriedades: login do cliente
+chave:
+relacionamentos:
+- cliente-aplicativo: um cliente terá um aplicativo baixado no seu smartphone para realizar as compras nos estabelecimentos credenciados
+-aplicativo-conta: um cliente terá uma ou mais contas cadastradas no aplicativo para realizar as compras sem a necessidade de checkout
+
+CONTA
+descrição:  dados pessoais do cliente, incluindo dados do cartão amazon
+propriedades: cpf, telefone, dados do cartão, nº da conta
+chave: cpf
+relacionamentos:
+-aplicativo-conta: um cliente terá uma ou mais contas cadastradas no aplicativo para realizar as compras sem a necessidade de checkout
