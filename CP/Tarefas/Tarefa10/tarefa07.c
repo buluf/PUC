@@ -52,7 +52,7 @@ int sieveOfEratosthenes(int n)
     }
 
     // count prime numbers
-    #pragma omp parallel for reduction(+:primes) schedule (dynamic, 100)
+    #pragma omp parallel for reduction(+:primes) schedule (dynamic, 500)
     for (int p=2; p<=n; p++)
        if (prime[p])
          primes++;

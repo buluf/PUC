@@ -1,0 +1,82 @@
+Configurações da Rede
+3 Camadas ocultas
+40 neuronios em cada
+
+
+Sequencial
+
+Time Treinar Rede= 9.521488
+Saida 1 : 0.184196
+Saida 2 : 0.225105
+Saida 3 : 0.118631
+Saida 4 : 0.221412
+Saida 5 : 0.239391
+
+Time Treinar Rede= 9.445083
+Saida 1 : 0.203569
+Saida 2 : 0.279415
+Saida 3 : 0.123813
+Saida 4 : 0.219047
+Saida 5 : 0.159895
+
+Time Treinar Rede= 10.220737
+Saida 1 : 0.206864
+Saida 2 : 0.188077
+Saida 3 : 0.185999
+Saida 4 : 0.163021
+Saida 5 : 0.223994
+
+Time Treinar Rede= 9.452393
+Saida 1 : 0.214505
+Saida 2 : 0.295206
+Saida 3 : 0.138485
+Saida 4 : 0.256666
+Saida 5 : 0.172611
+
+Time Treinar Rede= 9.392190
+Saida 1 : 0.318246
+Saida 2 : 0.293487
+Saida 3 : 0.227796
+Saida 4 : 0.213433
+Saida 5 : 0.192433
+
+5 execuções do código padrão sem alteração entre uma execução e outra, percebemos que os treinos que duraram mais tempo tiveram um resultado melhor, imagino que o motivo do tempo ser diferente é graças a parte randômica da rede.
+
+
+Vamos utilizar de base a "Saida 5" para avaliarmos se a versão paralela está imprimindo a saida "correta", visto que no 5 testes ela foi a mais "constante"
+
+
+Paralelizando o Treinar...
+adicionado um #pragma omp paralle for reduction(+:Som) na linha 84
+Time Treinar Rede= 8.318693
+Saida 1 : 0.233174
+Saida 2 : 0.214553
+Saida 3 : 0.199638
+Saida 4 : 0.247971
+Saida 5 : 0.195325
+Time Treinar Rede= 9.803645
+Saida 1 : 0.202756
+Saida 2 : 0.218018
+Saida 3 : 0.24097
+Saida 4 : 0.214353
+Saida 5 : 0.207878
+Time Treinar Rede= 3.231437
+Saida 1 : 0.600729
+Saida 2 : 0.389966
+Saida 3 : 0.64455
+Saida 4 : 0.340907
+Saida 5 : 0.204712
+Time Treinar Rede= 8.502285
+Saida 1 : 0.215682
+Saida 2 : 0.22491
+Saida 3 : 0.180763
+Saida 4 : 0.213546
+Saida 5 : 0.149168
+Time Treinar Rede= 8.948731
+Saida 1 : 0.273025
+Saida 2 : 0.41687
+Saida 3 : 0.116523
+Saida 4 : 0.217355
+Saida 5 : 0.164624
+
+Podemos perceber uma melhora no tempo de execução analisando a saida 5 podemos perceber que não há uma diferença grande da versão sequencial, então podemos concluir que não está ocorrendo erros

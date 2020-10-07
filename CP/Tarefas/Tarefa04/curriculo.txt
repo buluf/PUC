@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+\usepackage[pdftex]{hyperref}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{Black}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Leonardo Rothier Soares Cardoso}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Dados Pessoais}{}
+
+\PersonalEntry{Idade}{22 anos}
+\PersonalEntry{Endereço}{Av. Tomaz Gonzaga, 402. Apto 403 - Inconfidentes, Contagem, MG}
+\PersonalEntry{Contato}{(31) 99226-2096}
+\PersonalEntry{E-mail}{\url{leonardo.rothier19@gmail.com}}
+
+%%% Perfil Profissional
+%%% ------------------------------------------------------------
+\NewPart{Perfil Profissional}{}
+
+Bacharelando em Ciência da Computação, apaixonado por arquitetura, organização e projeto de computadores e com grande interesse em assembly. Na Puc Minas, monitora os alunos nas disciplinas de arquitetura de computadores e grafos. Atualmente busca adquirir conhecimento e experiência em projetos utilizando diversas linguagens de programação. Anseia por novas experiências, assim como por aumentar seus conhecimentos através do intercâmbio cultural e do compartilhamento. 
+
+%%% Objetivos
+%%% ------------------------------------------------------------
+\NewPart{Objetivos}{}
+
+Crescimento na área, aplicação de seus conhecimentos e absorção de novos.
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Formação}{}
+
+\EducationEntry{Bacharelado em Ciência da Computação}{Cursando}{Pontifícia Universidade Católica de Minas Gerais}
+
+%%% Experiência
+%%% ------------------------------------------------------------
+\NewPart{Experiência}{}
+
+\EducationEntry{TOOLSBR SOFTWARE DE GESTÃO LTDA}{2017}{Trabalhei como tester em uma empresa de criação de softwares voltados a logistica. Também trabalhava na parte de design, modificando as logos e recriando-as.}
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Habilidades e Ferramentas}{}
+
+\SkillsEntry{Básico}{C\#, Assembly PIC, Android, Verilog}
+\SkillsEntry{Intermediário}{C, Java, CSS, HTML, MIPS, MASM, Arduíno, Logisim}
+\SkillsEntry{Avançado}{C++}
+
+%%% Idiomas
+%%% ------------------------------------------------------------
+\NewPart{Qualificações}{}
+
+\SkillsEntry{Idiomas}{Inglês (Avançado)}
+\SkillsEntry{}{}
+\SkillsEntry{Informática}{Programação (Avançado)}
+\SkillsEntry{}{Adobe System (Intermediário)}
+\SkillsEntry{}{Pacotes Microsoft (Intermediário)}
+\SkillsEntry{}{Sistemas Operacionais Linux e Windows(Avançado)}
+
+\newpage
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Cursos e Certificações}
+
+\sepspace
+
+\EducationEntry{The Complete 2020 Web Development Bootcamp\\(full-stack web developer)}{2020}{Outro curso que estou aproveitando também para fazer nas férias, mas já em inglês, aprendendo HTML, CSS, Javascript, Node, React e outras coisas que vou aprender no curso. }
+
+\sepspace
+
+
+\EducationEntry{Programação em Python do básico ao avançado}{2020}{Aproveitei nessas ferias para aprender uma linguagem nova, e comprei um curso na udemy, irei usar essa linguagem em um projeto de IA(inteligência artificial). }
+
+\sepspace
+
+\EducationEntry{Protótipo de um Compilador}{2020}{Fiz a construção de um compilador em linguagem C++ e gerando códigos em MASM. O objetivo do trabalho é que o compilador traduza programas escritos na linguagem fonte “L” para um subconjunto do ASSEMBLY da família 80x86 e produza um arquivo texto que possa ser convertido em linguagem de máquina pelo montador MASM e executado com sucesso em um processador real. Link do github:  \url{//github.com/buluf/Compiladores}.}
+
+\sepspace
+
+\EducationEntry{ICPC}{2019}{International Collegiate Programming Contest}{Competição mundial de programação esportiva universitária
+}
+
+\sepspace
+
+\EducationEntry{Hackaton NASA}{2018}{Nasa International Space Apps Challenge}{Participei de um Hackaton da NASA de 48 horas ocorrido
+em Belo Horizonte, durante os dias 19, 20 e 21 de outubro. Desenvolvi junto com minha equipe de 4 pessoas,
+um aplicativo mobile com interação do Google Maps que
+tem como objetivo sinalizar locais inseguros, com riscos
+para saúde, dentre outras categorias.
+}
+\sepspace
+
+\EducationEntry{Técnicas de Invasão}{2018}{Bruno Fraga}{Conhecimento em segurança da informação e hacking, dominar ferramentas e desmistificar invasões reais.
+}
+\sepspace
+
+
+
+
+
+
+
+
+
+\end{document}
