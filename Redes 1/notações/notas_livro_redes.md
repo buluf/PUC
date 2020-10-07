@@ -9,6 +9,13 @@
 * ISP (Internet Service Provider)
 * ISO (International Standards Organization)
 * OSI (Open Systems Interconnection)
+* IP  (Internet Protocol)
+* TCP (Trnasmission Control Protocol)
+* UDP (User Datagram Protocol)
+* ICMP(Internet Control Message Protocol)
+* DNS (Domain Name Service)
+* FTTH (Fiber to the home)
+* CSMA (Carrier Sense Multiple Access)
 
 # Termos importantes
 #### Peer-to-peer(do inglês par-a-par ou ponto-a-ponto, famoso P2P)
@@ -149,7 +156,7 @@ O modelo OSI tem sete camadas. Veja, a seguir, um resumo dos princípios aplicad
 
 **A Camada Física**
 
-A **camada física** trata da transmissão de bits normais por um canal de comunicação. O projeto da rede deve garantir que, quando um lado enviar um bit 1, o outro lado o receberá como um bit 1, não como um bit 0. As questões mais comuns aqui são quais o sinais elétricos que devem ser usados para representar um bit 1 e um bit 0, q quantidade de nanossegundos que um bit deve durar, se a transmissão pode ou não ser realizada simultaneamente nos dois sentidos, a forma como a conexão inicial será estabelecida e de que maneira ela será encerrada quando ambos os lados tiverem terminado, e ainda quantos pinos o conector de rede terá e qual será a finalidade de cada pino. Nessa situação, as questões de projeto lidam em grande parte com interfaces mecânicas, elétricas e de sincronização, e com o meio físico de transmissão que se situa abaixo da camada física.
+A **camada física** trata da transmissão de bits normais por um canal de comunicação. O projeto da rede deve garantir que, quando um lado enviar um bit 1, o outro lado o receberá como um bit 1, não como um bit 0. As questões mais comuns aqui são quais o sinais elétricos que devem ser usados para representar um bit 1 e um bit 0, que quantidade de nanossegundos que um bit deve durar, se a transmissão pode ou não ser realizada simultaneamente nos dois sentidos, a forma como a conexão inicial será estabelecida e de que maneira ela será encerrada quando ambos os lados tiverem terminado, e ainda quantos pinos o conector de rede terá e qual será a finalidade de cada pino. Nessa situação, as questões de projeto lidam em grande parte com interfaces mecânicas, elétricas e de sincronização, e com o meio físico de transmissão que se situa abaixo da camada física.
 
 **A Camada De Enlaces De Dados**
 
@@ -168,6 +175,7 @@ Nas redes de broadcast, o problema de roteamento é simples e, assim, a camada d
 
 A função básica da camada de transporte é aceitar dados da camada acima dela, dividi-los em unidades menores, se for preciso, repassar essas unidades à camada de rede e garantir que todos os fragmentos chegarão corretamente à outra extremidade.
 A camada de transporte também determina que tipo de serviço deve ser fornecido à camada de sessão e, por fim, aos usuários da rede. O tipo mais popular de conexão de transporte é um canal ponto a ponto livre de erros que entrega mensagens ou bytes na ordem em que eles foram enviados. O tipo de serviço é determinado quando a conexão é estabelecida. A camada de transporte é uma verdadeira camada de ponta a ponta, que liga origem ao destino. Em outras palavras, um programa na máquina de origem mantém uma conversação com um programa semelhante instalado na máquina destino, utilizando os cabeçalhos de mensagens e as mensagens de controle.
+A camada de transporte é uma verdadeira camada de ponta a ponta, que liga a origem ao destino.
 
 **A Camada De Sessão**
 
@@ -188,7 +196,88 @@ Uma rede de comutação de pacotes baseada em uma camada de interligação de re
 
 **A Camada De Enlace**
 
-A **camada de enlace**, a mais baixa no modelo, descreve o que os enlaces como linhas seriais e a Ethernet clássica precisam fazer para c
+A **camada de enlace**, a mais baixa no modelo, descreve o que os enlaces como linhas seriais e a Ethernet clássica precisam fazer para cumprir os requisitos dessa camada de interconexão com serviço não orientado a conexões. Ela não é uma camada propriamente dita, no sentido normal do termo, mas uma interface entre os hosts e os enlaces de transmissão.
+
+**A Camada Internet (Camada De Rede)**
+
+A **camada internet** integra toda a arquitetura, mantendo-a unida. Sua tarefa é permitir que os hosts injetem pacotes em qualquer rede e garantir que eles trafegarão independentemente até o destino (talvez em uma rede diferente). Eles podem chegar até mesmo em uma ordem diferente daquela em que foram enviados, obrigando as camadas superiores a reorganizá-los, caso a entrega em ordem seja desejável.
+
+A camada internet define um formato de pacote oficial e um protocolo chamado **IP (Internet Protocol)**, mais um protocolo que o acompanha, chamado ICMP (**Internet Control Message Protocol**). A tarefa da camada internet é entregar pacotes IP onde eles são necessários.
+
+**A Camada De Transporte**
+
+No modelo TCP/IP, a camada localizada acima da camada internet agora é chamada **camada de transporte.** A finalidade dessa camada é permitir que as entidades pares dos hosts de origem e de destino mantenham uma conversação. Dois protocolos de ponta a ponta foram definidos aqui. O primeiro deles, o protocolo de controle de transmissão, ou TCP (Transmission Control Protocol), é um protocolo orientado a conexões confiável que permite a entrega sem erros de um fluxo de bytes originário de uma determinada máquina em qualquer computador da internet. Esse protocolo fragmenta o fluxo de bytes de entrada em mensagens discretas e passa cada uma delas para a camada internet. No destino, o processo TCP receptor volta a montar as mensagens recebidas no fluxo de saída. O TCP também cuida do controle de fluxo, impedindo que um transmissor rápido sobrecarregue um receptor lento com um volume de mensagens maior do que ele pode manipular.
+
+O segundo protocolo nessa camada, o protocolo de datagrama do usuário, ou **UDP (User Datagram Protocol),** é um protocolo sem conexões, não confiável, para aplicações que não desejam a sequência ou o controle de fluxo do TCP, e que desejam oferecer seu próprio controle. Ele é muito usado para consultas isoladas, com solicitação e resposta, tipo cliente-servidor, e aplicações em que a entrega imediata é mais importante do que a entrega precisa, como na transmissão de voz ou vídeo.
+
+**A Camada De Aplicação**
+
+O modelo TCP/IP não tem as camadas de sessão ou de apresentação. Não foi percebida qualquer necessidade para elas. Ao invés disso, as aplicações simplesmente incluem quaisquer funções e apresentação que forem necessárias.
+
+Acima da camada de transporte, encontramos a **camada de aplicação.** Ela contém todos os protocolos de nível mais alto. Dentre eles estão o protocolo de terminal virtua (TELNET), o protocolo de transferência de arquivos (FTP) e o protocolo de correio eletrônico (SMTP). Muitos outros protocolos foram incluídos no decorrer dos anos. Alguns dos mais importantes, incluem o DNS (Domain Name Service), que mapeia os nomes de hosts para seus respectivos endereços da camada de rede (Internet), o HTTP, protocolo usado para buscar páginas na World Wide Web, e o RTP, protocolo para entregar mídia em tempo real, como voz ou vídeo.
+
+![modelo](images/modelo_TCP_IP.PNG)
+
+#### Exemplos De Redes
+
+##### A Internet
+A internet não é de modo algum uma rede, mas sim um vasto conjunto de redes diferentes que utilizam certos protocolos comuns e fornecem determinados serviços comuns. É um sistema incomum no sentido de não ter sido planejado nem ser controlado por ninguém.
+
+**A ARPANET**
+
+A história começa no final da década de 1950. No auge da Guerra Fria, o Departamento de Defesa dos Estados Unidos queria uma rede de controle e comando capaz de sobreviver a uma guerra nuclear. Nessa época, toda as comunicações militares passavam pela rede de telefonia pública, considerada vulnerável.
+Foi sugerido por Wesley Clark, a criação de uma sub-rede comutada por pacotes, dando a cada host seu próprio roteador. A sub-rede consistiria em minicomputadores chamados processadores de mensagens de interface, ou **IMPs(Interface Message Processors)**, conectados por linhas de transmissão de 56 kbps. Para garantir sua alta confiabilidade, cada IMP seria conectado a pelo menos dois outros IMPs. A sub-rede tinha de ser uma sub-rede de datagrama, de modo que, se algumas linhas e alguns IMPs fossem destruídos, as mensagens poderiam ser roteadas automaticamente para caminhos alternativos.
+Cada nó da rede deveria ter um IMP e um host na mesma sala, conectados por um fio curto. Um host poderia enviar mensagens de até 8.063 bits para seu IMP que, em seguida, dividiria essas mensagens em pacotes de no máximo 1.008 bits e os encaminharia de forma independente até o destino. Cada pacote era recebido por completo antes de ser encaminhado; assim, a sub-rede se tornou a primeira rede eletrônica de comutação de pacotes de store-and-forward (de armazenamento e encaminhamento). BBN, empresa que ficará encarregada da contrução da sub-rede. A BBN resolveu utilizar, como IMPs, minicomputadores Honeywell DDP-316 especialmente modificados, com 12k palavras de 16 bits de memória principal. Os IMPs não tinham unidades de discos, pois os componentes móveis eram considerados pouco confiáveis .Os IMPs eram interconectados por linhas privadas das companhias telefônicas, de 56 kbs.
+O software foi dividido em duas partes: sub-rede e host. O software da sub-rede consistia na extremidade IMP da conexão host-IMP, no protocolo IMP-IMP e em um protocolo do IMP de origem para o IMP de destino, criado para aumentar a confiabilidade.
+
+O TCP/IP  foi criado especificamente para manipular a comunicação entre redes interligadas, algo que se tornou mais importante à medida que um número maior de redes era conectado à ARPANET. Os pesquisadores na University of California em Berkeley reescreveram o TCP/IP com uma nova interface de programação **(soquetes)** para o lançamento iminente da versão 4.2BSD do UNIX de Berkeley.
+
+Durante a década de 1980, novas redes, em particular as LANs, foram conectadas à ARPANET. À medida que a escala aumentou, tornou-se cada vez mais dispendioso localizar os hosts, e assim foi criado o sistema de nomes de domínio, ou **DNS** (**Domain Name System**), para  organizar máquinas em domínios e relacionar nomes de hosts com endereços IP. Desde então, o DNS se transformou em um sistema generalizado de bancos de dados distribuídos, capaz de armazenar uma série de informações referentes à atribuição de nomes.
+
+**NSFNET**
+A National Science Foundation Network foi um programa de financiamento da internet, patrocinado pela National Science Foundation entre 1985 e 1995, para promover uma rede de educação e pesquisa nos Estados Unidos. Também é nome dos primeiros backbones existentes da internet.
+Para ter algo concreto com que começar, a NSF decidiu construir uma rede de backbone para conectar seus seis centros de supercomputadores. Cada supercomputador ganhou um irmão mais novo, um micro computador LSI-11, chamado **fuzzball**. Os fuzzballs estavam conectados a linhas privadas de 56 kbps e formavam a sub-rede, usando a mesma tecnologia de hardware da ARPANET. Porém, a tecnologia de software era diferente: os fuzzballs se comunicavam diretamente com o tcp/ip desde o início, criando, assim, a primeira WAN TCP/IP.
+Ela se conectava à ARPANET por meio de um link entre um IMP e um fuzzball na central de processamento de dados da Carnegie-Mellon.
+
+Para facilitar a transição e garantir que todas as redes regionais pudessem se comunicar entre si, a NSF contratou quatro diferentes operadoras de redes para estabelecer um ponto de acesso de rede, ou **NAP** (**Network Access Point**).
+
+A Internet mudou muito dessa época para cá. Seu tamanho explodiu com o surgimento da World Wide Web(WWW), no início da década de 1990. Dados recentes do Internet Systems Consortium indicam que o número de hosts visíveis na internet supera os 600 milhões(por baixo e ultrapassado já).
+
+A maneira como usamos a Internet também mudou radicalmente. No início, aplicações como e-mail para acadêmicos, grupos de notícias, login remoto e transferência de arquivos dominavam. Depois, ela passou a ser um e-mail para cada um, depois a Web e a distribuição de conteúdo peer-to-peer, como o Napster, hoje fora de operação. Atualmente, distribuição de mídia em tempo real, redes sociais e microblogging estão ganhando cada vez mais força.
+
+### A subcamada de controle de acesso ao meio
+
+#### Protocolos de acesso múltiplo
+
+##### ALOHA
+
+**ALOHA Original**
+
+A ideia básica de um sistema ALOHA é simples: permitir que os usuários transmitam sempre que tiverem dados para enviar. Naturalmente, haverá colisões, e os quadros que colidirem serão danificados. Os transmissores precisam, de alguma maneira, descobrir se isso acontece. No sistema ALOHA, após cada estação ter transmitido seu quadro para o computador central, este computador retransmite o quadro para todas as estações. Desse modo, uma estação transmissora pode escutar por broadcast a partir do hub para ver se seu quadro passou. Em outros sistemas, como nas LANs com fios, o transmissor precisa ser capaz de escutar colisões enquanto transmite.
+Se o quadro foi destruído, o transmissor apenas espera um período aleatório e o envia novamente. O tempo de espera deve ser aleatório, caso contrário os mesmos quadros continuarão a colidir repetidas vezes, de forma inflexível. Os sistemas em que vários usuários compartilham um canal comum de forma que possa gerar conflitos em geral são conhecidos como sistemas de **disputa**.
+Sempre que dois quadros tentarem ocupar o canal ao mesmo tempo, haverá uma colisão e ambos serão danificados. Se o primeiro bit de um novo quadro se sobrepuser apenas ao último bit de um quadro quase terminado, os dois quadros serão totalmente destruídos (ou seja, terão checksums incorretos) e terão de ser retransmitidos posteriormente. O checksum não consegue (e não deve) fazer distinção entre uma perda total e uma perda parcial. Quadro com erro é quadro com erro, sem distinções.
+
+![aloha original](images/pure_aloha.PNG)
+
+**Slotted ALOHA**
+
+Logo depois que o ALOHA entrou em cena, Roberts(1972) publicou um método para duplicar a capacidade de um sistema ALOHA. Sua proposta era dividir o tempo em intervalos discretos, chamados **slots**, com cada intervalo correspondendo a um quadro. Esse método exige que os usuários concordem em relação às fronteiras dos slots. Uma forma de alcançar a sincronização entre os usuários seria ter uma estação especial que emitisse um sinal sonoro no início de cada intervalo, como um relógio.
+Em contraste com o ALOHA original de Abramson, um computador não tem permissão para transmitir sempre que o usuário digita uma linha. Em vez disso, é necessário esperar o início do próximo slot. Consequentemente, o ALOHA original contínuo transforma-se em um sistema discreto. O período de vulnerabilidade está agora reduzido à metade.
+
+![slotted aloha](images/slotted_aloha.PNG)
+
+**Slotted ALOHA**
+
+Vulnerable Time = Frame Transmission time.
+
+Throughput = G x e^-G; Where G is the number of stations wish to transmit in the same time.
+
+Maximum throughput = 0.368 for G=1.
+
+
+
+O slotted ALOHA é importante por uma razão que, em princípio, talvez não seja óbvia. Ele foi criado na década de 70, foi usado em alguns sistemas experimentais e depois foi quase esquecido. Quando foi criado o acesso a Internet por cabo, surgiu o problema de como alocar um canal compartilhado entre vários usuários concorrentes, e o slotted ALOHA foi resgatado para salvar a situação.
+
 
 ## Curiosidades:
 * ##### Napster
@@ -208,3 +297,7 @@ Carnivore foi um sistema implementado pelo Federal Bureau of investigation - FBI
 
 * #### Ken Olsen
 'Não há nenhuma razão para qualquer indivíduo ter um computador em casa'.
+
+* A palavra **modem** é uma construção de 'modulador-demodulador' e refere-se a qualquer dispositivo que faz a conversão entre bits digitais e sinais analógicos.
+
+* O acesso à Internet em velocidades muito maiores que as discadas é chamado de **banda larga (broadband).**
